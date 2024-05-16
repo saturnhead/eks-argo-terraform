@@ -14,6 +14,7 @@ locals {
     policies = ["arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy", "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy", "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly"]
 }
 
+
 data "aws_availability_zones" "available" {}
 
 resource "aws_vpc" "main" {
