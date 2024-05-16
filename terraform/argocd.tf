@@ -17,13 +17,13 @@ data "aws_eks_cluster_auth" "main" {
 }
 
 resource "helm_release" "argocd" {
-  depends_on = [ aws_eks_node_group.main ]
+  depends_on = [aws_eks_node_group.main]
   name       = "argocd"
   repository = "https://argoproj.github.io/argo-helm"
   chart      = "argo-cd"
   version    = "4.5.2"
 
-  namespace  = "argocd"
+  namespace = "argocd"
 
   create_namespace = true
 

@@ -11,7 +11,7 @@ terraform {
 }
 
 locals {
-    policies = ["arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy", "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy", "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly"]
+  policies = ["arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy", "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy", "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly"]
 }
 
 
@@ -148,7 +148,7 @@ EOF
 }
 
 resource "aws_iam_role_policy_attachment" "eks_role_attachment" {
-  for_each = toset(local.policies)
+  for_each   = toset(local.policies)
   role       = aws_iam_role.eks_node_role.name
   policy_arn = each.value
 }
