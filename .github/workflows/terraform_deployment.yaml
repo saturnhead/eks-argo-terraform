@@ -1,4 +1,4 @@
-name: Terraform workflow
+name: Terraform Workflow
  
 on:
  push:
