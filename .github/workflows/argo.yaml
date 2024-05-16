@@ -1,4 +1,4 @@
-name: Deploy to Kubernetes using ArgoCD
+name: ArgoCD workflow
 
 on:
   push:
