@@ -1,5 +1,14 @@
 provider "spacelift" {}
 
+terraform {
+  required_providers {
+    spacelift = {
+      source = "spacelift-io/spacelift"
+    }
+  }
+}
+
+
 resource "spacelift_stack" "k8s-cluster" {
   branch            = "main"
   description       = "Provisions a Kubernetes cluster"
