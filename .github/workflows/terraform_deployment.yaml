@@ -105,4 +105,4 @@ jobs:
        uses: actions/upload-artifact@v4
        with:
           name: terraform-output
-          path: ./eks_connect.txt
+          path: ./terraform/eks_connect.txt
