@@ -34,7 +34,6 @@ resource "aws_subnet" "public_subnet" {
   tags = {
     Name = "public-subnet-${count.index}"
   }
-  
 }
 
 resource "aws_internet_gateway" "main" {
