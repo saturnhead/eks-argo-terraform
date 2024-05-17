@@ -24,6 +24,7 @@ resource "aws_vpc" "main" {
   }
 }
 
+
 resource "aws_subnet" "public_subnet" {
   count                   = 2
   vpc_id                  = aws_vpc.main.id
