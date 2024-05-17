@@ -34,8 +34,8 @@ jobs:
       - name: Read Terraform Output
         id: read_tf_output
         run: |
-          export KUBECTL_CONFIG_COMMAND=$(cat kubectl_config_command)
-          echo "::set-output name=kubectl_config_command::$KUBECTL_CONFIG_COMMAND"
+          export KUBECTL_CONFIG_COMMAND=$(cat eks_connect.txt)
+          echo "KUBECTL_CONFIG_COMMAND=$KUBECTL_CONFIG_COMMAND" >> $GITHUB_ENV
 
       - name: Install kubectl
         run: |

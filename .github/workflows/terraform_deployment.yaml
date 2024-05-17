@@ -14,7 +14,7 @@ on:
   
 jobs:
  terraform:
-   name: "Terraform Infrastructure Change Management"
+   name: "Terraform deploy"
    runs-on: ubuntu-latest
    defaults:
      run:
@@ -94,13 +94,11 @@ jobs:
      
      - name: Capture Terraform Output
        id: tf_output
-       run: echo "::set-output name=kubectl_config_command::$(terraform output -raw eks_connect)"
-
-     - name: Save Terraform Output
-       run: echo "${{ steps.tf_output.outputs.kubectl_config_command }}" > kubectl_config_command.txt
+       run: |
+          terraform output -raw eks_connect > eks_connect.txt
 
      - name: Upload Terraform Output Artifact
        uses: actions/upload-artifact@v2
        with:
           name: terraform-output
-          path: kubectl_config_command.txt
+          path: eks_connect.txt
