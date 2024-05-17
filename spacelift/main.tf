@@ -42,7 +42,7 @@ resource "spacelift_aws_integration_attachment" "k8s-cluster" {
 
 resource "spacelift_aws_integration_attachment" "argocd" {
   integration_id = var.integration_id
-  stack_id       = spacelift_stack.k8s-cluster.id
+  stack_id       = spacelift_stack.argocd.id
   read           = true
   write          = true
 }
