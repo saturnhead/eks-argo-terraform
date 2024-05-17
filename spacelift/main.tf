@@ -48,7 +48,7 @@ resource "spacelift_aws_integration_attachment" "argocd" {
 }
 
 resource "spacelift_stack_dependency" "cluster-argo" {
-  stack_id            = spacelift_stack.argo.id
+  stack_id            = spacelift_stack.argocd.id
   depends_on_stack_id = spacelift_stack.k8s-cluster.id
 }
 
