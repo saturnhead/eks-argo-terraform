@@ -22,7 +22,7 @@ resource "spacelift_stack" "k8s-cluster" {
 
 resource "spacelift_stack" "argocd" {
   kubernetes {
-    namespace = "default"
+    namespace = "argocd"
   }
   branch       = "main"
   description  = "Deploys an ArgoCD application"
