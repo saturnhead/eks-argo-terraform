@@ -43,8 +43,8 @@ jobs:
       
      - name: Deploy application
        run: | 
-          kubectl delete -f ../argocd/config/argocd-app.yaml
-          kubectl delete namespace argocd
+          kubectl delete -f ../argocd/config/argocd-app.yaml || true
+          kubectl delete namespace argocd || true
      
      - name: Terraform init
        id: init
