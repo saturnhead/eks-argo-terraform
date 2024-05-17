@@ -99,7 +99,7 @@ jobs:
           cat eks_connect.txt
 
      - name: Upload Terraform Output Artifact
-       uses: actions/upload-artifact@v2
+       uses: actions/upload-artifact@v4
        with:
           name: terraform-output
           path: eks_connect.txt
