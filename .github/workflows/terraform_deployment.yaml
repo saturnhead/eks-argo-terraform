@@ -96,6 +96,7 @@ jobs:
        id: tf_output
        run: |
           terraform output -raw eks_connect > eks_connect.txt
+          cat eks_connect.txt
 
      - name: Upload Terraform Output Artifact
        uses: actions/upload-artifact@v2
