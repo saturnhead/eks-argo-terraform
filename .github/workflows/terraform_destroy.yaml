@@ -31,7 +31,11 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_REGION }}
           aws-session-token: ${{ secrets.AWS_SESSION_TOKEN }}
-    
+     
+     - name: Terraform init
+       id: init
+       run: terraform init
+
      - name: Terraform destroy
        id: destroy
        run: terraform destroy -auto-approve
