@@ -24,18 +24,6 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_REGION }}
           aws-session-token: ${{ secrets.AWS_SESSION_TOKEN }}
-      
-      - name: Download Terraform Output Artifact
-        uses: actions/download-artifact@v2
-        with:
-          name: terraform-output
-          path: .
-
-      - name: Read Terraform Output
-        id: read_tf_output
-        run: |
-          export KUBECTL_CONFIG_COMMAND=$(cat eks_connect.txt)
-          echo "KUBECTL_CONFIG_COMMAND=$KUBECTL_CONFIG_COMMAND" >> $GITHUB_ENV
 
       - name: Install kubectl
         run: |
@@ -44,7 +32,7 @@ jobs:
           sudo mv kubectl /usr/local/bin/
 
       - name: Update kubeconfig
-        run: ${{ steps.read_tf_output.outputs.kubectl_config_command }}
+        run: aws eks --region eu-west-1 update-kubeconfig --name main-eks-cluster
       
       - name: Deploy application
         run: kubectl apply -f argocd/config/argocd-app.yaml

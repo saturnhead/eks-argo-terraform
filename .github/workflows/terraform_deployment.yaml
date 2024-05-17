@@ -93,16 +93,13 @@ jobs:
        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
        run: terraform apply -auto-approve -input=false
      
-     - name: Capture Terraform Output
-       id: tf_output
-       run: |
-          terraform output -raw eks_connect > eks_connect.txt
-    
-     - name: List Files
-       run: ls -l
+    #  - name: Capture Terraform Output
+    #    id: tf_output
+    #    run: |
+    #       terraform output -raw eks_connect > eks_connect.txt
 
-     - name: Upload Terraform Output Artifact
-       uses: actions/upload-artifact@v4
-       with:
-          name: terraform-output
-          path: ./terraform/eks_connect.txt
+    #  - name: Upload Terraform Output Artifact
+    #    uses: actions/upload-artifact@v4
+    #    with:
+    #       name: terraform-output
+    #       path: ./terraform/eks_connect.txt
