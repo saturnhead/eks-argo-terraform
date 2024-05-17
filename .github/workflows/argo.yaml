@@ -16,6 +16,14 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
+      
+      - name: Check if triggered by main branch
+        id: check_branch
+        run: |
+          if [[ "${{ github.event.workflow_run.head_branch }}" != "main" ]]; then
+            echo "This workflow was not triggered by the main branch. Exiting."
+            exit 1
+          fi
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v2
