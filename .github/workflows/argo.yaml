@@ -39,9 +39,9 @@ jobs:
           chmod +x kubectl
           sudo mv kubectl /usr/local/bin/
 
-      - name: Update kubeconfig
-        run: aws eks --region eu-west-1 update-kubeconfig --name main-eks-cluster
+      # - name: Update kubeconfig
+      #   run: aws eks --region eu-west-1 update-kubeconfig --name main-eks-cluster
       
-      - name: Deploy application
-        run: kubectl apply -f argocd/config/argocd-app.yaml
+      # - name: Deploy application
+      #   run: kubectl apply -f argocd/config/argocd-app.yaml
 
