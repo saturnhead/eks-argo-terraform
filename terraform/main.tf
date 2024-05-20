@@ -4,8 +4,8 @@ provider "aws" {
 # terraform {
 #   required_version = "1.5.7"
 #   backend "s3" {
-#     bucket = "tf-argo-eks-bucket"
-#     key    = "tfstate-argo"
+#     bucket = "your-bucket-name"
+#     key    = "your-bucket-key"
 #     region = "eu-west-1"
 #   }
 # }
