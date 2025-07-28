@@ -27,15 +27,14 @@ resource "helm_release" "argocd" {
 
   create_namespace = true
 
-  set {
+  set = [{
     name  = "server.service.type"
     value = "LoadBalancer"
-  }
-
-  set {
+  },
+  {
     name  = "server.service.annotations.service\\.beta\\.kubernetes\\.io/aws-load-balancer-type"
     value = "nlb"
-  }
+  }]
 }
 
 
